@@ -7,12 +7,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OrderService {
-  // private readonly apiUrl = 'https://localhost:7087/api/Order';
-  private readonly apiUrl = 'https://webshopfilimon.azurewebsites.net/api/Order';
+  private readonly apiUrl = 'https://localhost:7087/api/Order';
   constructor(private http: HttpClient) { }
 
   getOrders(): Observable<Order[]>{
-    const observable = this.http.get<Order[]>(`${this.apiUrl}/AllOrders`);
+    const observable = this.http.get<Order[]>(this.apiUrl);
      observable.subscribe({
        next: order => {
         console.log(order)
@@ -27,6 +26,6 @@ export class OrderService {
 
      getOrderById(id: string): Observable<Order> {
       console.log('order', id)
-     return this.http.get<Order>(`${this.apiUrl}/GetOrderById/${id}`);
+     return this.http.get<Order>(`${this.apiUrl}/${id}`);
    }
 }
