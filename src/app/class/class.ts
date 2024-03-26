@@ -5,11 +5,13 @@ export class Product {
       public productId: string;
       public categoryId: string;
       public title: string;
-      public price: number;
+      public piecePrice: number;
+      public cratePrice: number;
+      public crate: number;
+      public piece: number;
       public categoryName: string;
       public description: string;
       public isPopular: boolean;
-      public kilo: number;
       public imageUrls: ImageUpdateModel[];
 
 
@@ -17,8 +19,10 @@ export class Product {
         this.productId = uuidv4();
         this.categoryId = data.categoryId
         this.title = data.title;
-        this.price = data.price;
-        this.kilo = data.kilo
+        this.piecePrice = data.piecePrice;
+        this.cratePrice = data.cratePrice;
+        this.crate = data.crate;
+        this.piece = data.piece
         this.categoryName = data.categoryName;
         this.description = data.description;
         this.imageUrls = data.imageUrls;

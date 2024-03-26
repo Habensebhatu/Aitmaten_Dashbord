@@ -30,7 +30,7 @@ export class EditProductDialogComponent {
       
       this.productForm = this.fb.group({
           title: [data.title],
-          price: [data.price],
+          price: [data.piecePrice],
           category: [data.categoryName],
           description: [data.description],
           isPopular: [data.isPopular],  

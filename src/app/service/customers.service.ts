@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class CustomersService {
 
-  // private readonly apiUrl = 'https://localhost:7087/api/Customer';
-  private readonly apiUrl = 'https://webshopfilimon.azurewebsites.net/api/Customer';
+  private readonly apiUrl = 'https://localhost:7087/api/Customer';
+  // private readonly apiUrl = 'https://webshopfilimon.azurewebsites.net/api/Customer';
   constructor(private http: HttpClient) { }
 
   getCustomers(): Observable<Customer[]>{

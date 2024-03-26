@@ -22,12 +22,14 @@ export class AddProductComponent implements OnInit {
     private productService: ProductService ) {
     this.productForm = this.fb.group({
       title: ['', Validators.required],
-      price: ['', Validators.required],
-      kilo:[''],
+      piecePrice: ['', Validators.required],
+      piece: ['', Validators.required],
+      cratePrice: ['', Validators.required],
+      crate: ['', Validators.required],
       category: ['', Validators.required],
       description: ['', Validators.required],
       image: ['', Validators.required],
-      isPopular: [false]  // default to false
+      isPopular: [false]  
     });
   }
 ngOnInit(): void {
@@ -64,7 +66,6 @@ addProduct(): void {
   }
   if (this.selectedFiles && this.selectedFiles.length) {
     const product = new Product(this.productForm.value);
-    console.log("ispopular", product)
     let selectedCategory = this.productForm.get('category')!.value;
     product.categoryName = selectedCategory.name;
     product.categoryId = selectedCategory.categoryId;

@@ -33,7 +33,7 @@ export class Order {
     }
   
     calculateTotal(): number {
-      return this.products.reduce((total, product) => total + product.price, 0);
+      return this.products.reduce((total, product) => total + product.piecePrice, 0);
     }
   }
   
