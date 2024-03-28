@@ -44,7 +44,7 @@
             <h2 class="text-lg font-medium mb-4">Afleveradres</h2>
             <mat-list>
                 <mat-list-item>Stad: {{ dataSource?.city }}</mat-list-item>
-                <mat-list-item>Adres: {{ dataSource?.line1 }}</mat-list-item>
+                <mat-list-item>Adres: {{ dataSource?.street + ' ' + dataSource?.huisNumber }}</mat-list-item>
                 <mat-list-item>Postcode: {{ dataSource?.postalCode }}</mat-list-item>
             </mat-list>
         </div>
@@ -57,25 +57,28 @@
             <mat-card-title class="text-xl font-bold">Bestelde artikelen</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <!-- Header Row -->
+           
             <div class="flex justify-between text-gray-600 mb-2">
               <div class="w-1/5">Foto</div>
-              <div class="w-1/5">Productnaam</div>
+              <div class="w-1/2">Productnaam</div>
               <div class="w-1/5">Aantal</div>
-              <div class="w-1/5">Prijs</div>
+              <div class="w-1/5">Inhoud</div>
+              <div class="w-1/5">STUKSPRIJS</div>
               <div class="w-1/5">Totaal</div>              
             </div>
     
-            <!-- Data Rows -->
+           
             <div *ngFor="let item of dataSource?.orderDetails" class="flex justify-between bg-white my-4 p-2 border border-slate-300 rounded-lg ">
                 <div class="w-1/5">
                     <img [src]="item.imageUrl" alt="product" class="w-[50px] h-[50px] object-cover" />
                 </div>
-                <div class="w-1/5">{{ item.title }}</div>
-                <div class="w-1/5">{{ item.quantity }}</div>
+                <div class="w-1/2">{{ item.title }}</div>
+                <div class="w-1/5">{{ item.quantity / item.contents}}</div>
+                <div class="w-1/5">{{ item.contents }}</div>
                 <div class="w-1/5">{{ item.price | currency:'EUR':'symbol':'1.2-2' }}</div>
                 <div class="w-1/5">{{ item.amountTotal | currency:'EUR':'symbol':'1.2-2' }}</div>
             </div>
+          
     
         </mat-card-content>
     </mat-card>

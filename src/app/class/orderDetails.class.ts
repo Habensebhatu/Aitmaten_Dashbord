@@ -3,10 +3,11 @@ export class OrderDetails {
     orderId : string;
     productId: string;
     title : string;
-    quantity: string;
+    quantity: number;
     amountTotal : string;
     imageUrl : string;
-    price : string
+    price : string;
+    contents : number
 
 
     
@@ -19,6 +20,7 @@ export class OrderDetails {
       this.amountTotal = orderDetailsInfo.amountTotal;
       this.imageUrl = orderDetailsInfo.imageUrl;
       this.price = orderDetailsInfo.price;
+      this.contents = orderDetailsInfo.contents;
     }
   
     

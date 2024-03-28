@@ -12,12 +12,21 @@ import { OrderService } from 'src/app/service/order.service';
 export class OrderDetailsComponent implements OnInit {
   customerColumns: string[] = ['orderDate', 'recipientName', 'customerEmail', 'phoneNumber'];
   orderItemColumns: string[] = ['photo', 'title', 'quantity', 'price', 'amountTotal'];
+  displayedColumns: string[] = [
+    'AFBEELDING',
+    'PRODUCT',
+    'AANTAL',
+    'INHOUD',
+    'STUKSPRIJS',
+    'TOTAAL',
+  ];
   orderId: string | null = null;
   dataSource: Order | undefined; 
   private unsubscribe$ = new Subject<void>();
 
   constructor(private route: ActivatedRoute, private orderService: OrderService) { }
-
+  
+ 
   ngOnInit(): void {
     this.orderId = this.route.snapshot.paramMap.get('id');
     this.getOrderById();

@@ -12,9 +12,11 @@ export class Order {
     total: number;
     recipientName: string;
     city : string;
-    line1 : string;
+    street : string;
+    huisNumber : string;
     postalCode : string
     OrderNumber : number;
+   
 
     constructor(orderInfo: any) {
       this.orderId = orderInfo.id;
@@ -26,9 +28,11 @@ export class Order {
       this.total = this.calculateTotal();
       this.recipientName = orderInfo.recipientName;
       this.city = orderInfo.city;
-      this.line1 = orderInfo.line1;
       this.postalCode = orderInfo.postalCode;
       this.OrderNumber = orderInfo.OrderNumber;
+      this.street = orderInfo.street;
+      this.huisNumber = orderInfo.huisNumber;
+    
 
     }
   
