@@ -22,6 +22,7 @@ export class EditProductDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: Product, private fb: FormBuilder, private categoryService: CategoryService,
     private productService: ProductService) {
       // Map each URL to the new object structure
+      console.log("datatattata", data)
       this.displayedImages = data.imageUrls ? data.imageUrls.map(imageInfo => ({
         file: imageInfo.file, index: imageInfo.index, isNew: false 
       })) : [];
@@ -30,13 +31,19 @@ export class EditProductDialogComponent {
       
       this.productForm = this.fb.group({
           title: [data.title],
-          price: [data.piecePrice],
+          piecePrice: [data.piecePrice],
+          kilo: [data.kilo],
+          instokeOfPiece: [data.instokeOfPiece],
+          cratePrice : [data.cratePrice],
+          crateQuantity: [data.crateQuantity],
+          InstokeOfCrate: [data.InstokeOfCrate],
           category: [data.categoryName],
           description: [data.description],
           isPopular: [data.isPopular],  
-          image: [data.isPopular]  // This remains unchanged if your form still expects a string[]
+          image: [data.isPopular]
       });
-     
+
+    
 }
 
   ngOnInit(): void {

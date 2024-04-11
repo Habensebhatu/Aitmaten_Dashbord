@@ -6,9 +6,11 @@ export class Product {
       public categoryId: string;
       public title: string;
       public piecePrice: number;
+      public kilo?: number
+      public instokeOfPiece: number;
       public cratePrice: number;
-      public crate: number;
-      public piece: number;
+      public crateQuantity: number;
+      public InstokeOfCrate: number;
       public categoryName: string;
       public description: string;
       public isPopular: boolean;
@@ -20,9 +22,11 @@ export class Product {
         this.categoryId = data.categoryId
         this.title = data.title;
         this.piecePrice = data.piecePrice;
+        this.instokeOfPiece = data.instokeOfPiece
+        this.kilo = data.kilo
         this.cratePrice = data.cratePrice;
-        this.crate = data.crate;
-        this.piece = data.piece
+        this.crateQuantity = data.crateQuantity;
+        this.InstokeOfCrate = data.InstokeOfCrate;
         this.categoryName = data.categoryName;
         this.description = data.description;
         this.imageUrls = data.imageUrls;
@@ -31,3 +35,5 @@ export class Product {
     }
 
   }
+
+  

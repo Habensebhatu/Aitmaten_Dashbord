@@ -16,16 +16,18 @@ export class AddProductComponent implements OnInit {
   productForm: FormGroup;
   categories: Category[] = [];
   private unsubscribe$ = new Subject<void>();
-
+  
   constructor(public dialogRef: MatDialogRef<AddProductComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder,  private categoryService: CategoryService,
     private productService: ProductService ) {
     this.productForm = this.fb.group({
       title: ['', Validators.required],
       piecePrice: ['', Validators.required],
-      piece: ['', Validators.required],
+      kilo: ['',],
+      instokeOfPiece: ['', Validators.required],
       cratePrice: ['', Validators.required],
-      crate: ['', Validators.required],
+      crateQuantity: ['', Validators.required],
+      InstokeOfCrate: ['', Validators.required],
       category: ['', Validators.required],
       description: ['', Validators.required],
       image: ['', Validators.required],

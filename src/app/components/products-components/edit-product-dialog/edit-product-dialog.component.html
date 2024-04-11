@@ -1,4 +1,4 @@
-<!-- <div class="p-6 pb-0">
+<div class="p-6 pb-0">
   <h2>Edit product</h2>
 </div>
 <div class="max-h-[70vh] overflow-y-auto p-4">
@@ -9,8 +9,20 @@
       <input matInput type="text" formControlName="title">
     </mat-form-field>
     <mat-form-field class="w-full">
-      <mat-label>Price</mat-label>
-      <input matInput type="number" formControlName="price">
+      <mat-label>Stuk Prijs</mat-label>
+      <input matInput type="number" formControlName="piecePrice">
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <mat-label>Fust Prijs</mat-label>
+      <input matInput type="number" formControlName="cratePrice">
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <mat-label>Inhoud Fust</mat-label>
+      <input matInput type="number" formControlName="crate">
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <mat-label>Op voorraad</mat-label>
+      <input matInput type="number" formControlName="piece">
     </mat-form-field>
     <mat-form-field class="w-full">
       <mat-label>Category</mat-label>
@@ -21,7 +33,7 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field class="w-full">
-      <mat-label>Description</mat-label>
+      <mat-label>Land van Oorsprong</mat-label>
       <input matInput type="text" formControlName="description">
     </mat-form-field>
     <div class="file-upload mb-5">
@@ -50,4 +62,4 @@
     <button mat-raised-button color="primary" (click)="save()"
       class="w-full py-4 mt-4 bg-blue-500 text-white font-bold rounded hover:bg-blue-700"> Edit Product</button>
   </form>
-</div> -->
+</div>

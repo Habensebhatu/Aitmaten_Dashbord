@@ -8,21 +8,29 @@
       <mat-label>Titel</mat-label>
       <input matInput type="text" formControlName="title">
     </mat-form-field>
-    <mat-form-field class="w-full" >
-      <mat-label>Stuk</mat-label>
-      <input matInput type="text" formControlName="piece">
-    </mat-form-field>
     <mat-form-field class="w-full">
-      <mat-label>Stuk prijs</mat-label>
+      <mat-label>Stuk of kilo prijs </mat-label>
       <input matInput type="number" formControlName="piecePrice">
     </mat-form-field>
     <mat-form-field class="w-full">
-      <mat-label>Fust</mat-label>
-      <input matInput type="text" formControlName="crate">
+      <mat-label>kilo </mat-label>
+      <input matInput type="number" formControlName="kilo">
     </mat-form-field>
     <mat-form-field class="w-full">
-      <mat-label>Fust prijs</mat-label>
+      <mat-label>Aantal op voorraad (in stuks of in kilo) </mat-label>
+      <input matInput type="number" formControlName="instokeOfPiece">
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <mat-label>Inhoud prijs</mat-label>
       <input matInput type="number" formControlName="cratePrice">
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <mat-label>Inhoud</mat-label>
+      <input matInput type="text" formControlName="crateQuantity">
+    </mat-form-field>
+    <mat-form-field class="w-full" >
+      <mat-label>Op voorraad Inhoud</mat-label>
+      <input matInput type="text" formControlName="InstokeOfCrate">
     </mat-form-field>
     <mat-form-field class="w-full">
       <mat-label>Categorie</mat-label>
@@ -33,7 +41,7 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field class="w-full">
-      <mat-label>Beschrijving</mat-label>
+      <mat-label>Land van Oorsprong</mat-label>
       <input matInput type="text" formControlName="description">
     </mat-form-field>
     <div class="file-upload mb-5 pb-0">

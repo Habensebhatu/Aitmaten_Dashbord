@@ -35,7 +35,6 @@ export class OrderDetailsComponent implements OnInit {
   getOrderById(){
     this.orderService.getOrderById(this.orderId!).pipe(takeUntil(this.unsubscribe$))
     .subscribe((orders: Order) => {
-      console.log("order", orders)
       this.dataSource = orders;
     });;
   }
