@@ -10,7 +10,7 @@ export class Product {
       public instokeOfPiece: number;
       public cratePrice: number;
       public crateQuantity: number;
-      public InstokeOfCrate: number;
+      public instokeOfCrate: number;
       public categoryName: string;
       public description: string;
       public isPopular: boolean;
@@ -26,7 +26,7 @@ export class Product {
         this.kilo = data.kilo
         this.cratePrice = data.cratePrice;
         this.crateQuantity = data.crateQuantity;
-        this.InstokeOfCrate = data.InstokeOfCrate;
+        this.instokeOfCrate = data.instokeOfCrate;
         this.categoryName = data.categoryName;
         this.description = data.description;
         this.imageUrls = data.imageUrls;

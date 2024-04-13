@@ -104,6 +104,7 @@ getProductsPageNumber(pageNumber: number, pageSize: number): Observable<Product[
   }
   
   updateProduct(formData: FormData) {
+    console.log("formDataformData", formData)
     return this.http.put<Product>(this.apiUrl, formData);
   }
    

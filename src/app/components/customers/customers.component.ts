@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
-import { Customer } from 'src/app/class/customer';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { UserRegistration } from 'src/app/class/customer';
 import { CustomersService } from 'src/app/service/customers.service';
 
 @Component({
@@ -8,27 +9,41 @@ import { CustomersService } from 'src/app/service/customers.service';
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css'],
 })
-export class CustomersComponent {
+export class CustomersComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = [
-    'recipientName',
-    'customerEmail',
-    'phoneNumber',
-    'city',
-    'line1',
+    'bedrijfsNaam', 'kvkNummer', 'phoneNumber', 'name', 'isApprove', 'action'
   ];
-  dataSource: Customer[] = [];
+  dataSource: UserRegistration[] = [];
   private unsubscribe$ = new Subject<void>();
-  constructor(public customerService: CustomersService) {}
+
+  constructor(private customerService: CustomersService) {}
 
   ngOnInit(): void {
-    this.getOrders();
+    this.getAllUsers();
   }
-  getOrders() {
-    this.customerService
-      .getCustomers()
+
+  getAllUsers() {
+    this.customerService.getAllUsers()
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((customers: Customer[]) => {
+      .subscribe((customers: UserRegistration[]) => {
         this.dataSource = customers;
       });
+  }
+
+  approveUser(userId: string) {
+    this.customerService.approveUser(userId).subscribe(() => {
+      this.getAllUsers(); // Refresh list after approval
+    });
+  }
+
+  rejectUser(userId: string) {
+    this.customerService.rejectUser(userId).subscribe(() => {
+      this.getAllUsers(); // Refresh list after rejection
+    });
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

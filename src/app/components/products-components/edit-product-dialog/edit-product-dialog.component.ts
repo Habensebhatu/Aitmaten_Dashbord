@@ -36,7 +36,7 @@ export class EditProductDialogComponent {
           instokeOfPiece: [data.instokeOfPiece],
           cratePrice : [data.cratePrice],
           crateQuantity: [data.crateQuantity],
-          InstokeOfCrate: [data.InstokeOfCrate],
+          instokeOfCrate: [data.instokeOfCrate],
           category: [data.categoryName],
           description: [data.description],
           isPopular: [data.isPopular],  
@@ -99,7 +99,6 @@ readFileAsDataURL(file: File): Promise<string> {
   });
 }
 triggerFileInput(event: any, index: number) {
-  // Find the nearest file input and trigger its click event
   const fileInput = event.target.nextElementSibling;
   fileInput.click();
 }
@@ -130,15 +129,14 @@ save() {
   const existingImages = this.displayedImages
     .filter(img => !img.isNew)
     .map(img => ({
-        file: img.file, // assuming your object's property for the image URL is named 'file'
+        file: img.file, 
         index: img.index
     }));
 
   formData.append("existingImages", JSON.stringify(existingImages));
   this.dialogRef.close(formData);
-}
+} 
 
-  
 }
 
 
